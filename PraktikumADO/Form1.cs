@@ -63,5 +63,37 @@ namespace PraktikumADO
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnHitungMhs_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Koneksi();           // panggil method koneksi yang sudah dibuat sebelumnya
+                conn.Open();
+
+                string query = "SELECT COUNT(*) FROM Mahasiswa";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    int jumlah = (int)cmd.ExecuteScalar();
+                    txtHasil.Text = jumlah.ToString();
+                }
+
+                conn.Close();
+
+                // Optional: beri feedback ke user
+                MessageBox.Show($"Jumlah mahasiswa: {txtHasil.Text} orang",
+                                "Informasi",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan:\n" + ex.Message,
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+        }
     }
 }
