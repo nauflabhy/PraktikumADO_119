@@ -31,7 +31,7 @@
             this.btnConnect = new System.Windows.Forms.Button();
             this.btnHitungMhs = new System.Windows.Forms.Button();
             this.btnHitungMk = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -63,15 +63,15 @@
             this.btnHitungMk.Text = "Hitung Mk";
             this.btnHitungMk.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnUpdate
             // 
-            this.button4.Location = new System.Drawing.Point(992, 411);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(236, 87);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Update";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnUpdate.Location = new System.Drawing.Point(992, 411);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(236, 87);
+            this.btnUpdate.TabIndex = 3;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.button4_Click);
             // 
             // label1
             // 
@@ -98,7 +98,7 @@
             this.ClientSize = new System.Drawing.Size(1347, 632);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnHitungMk);
             this.Controls.Add(this.btnHitungMhs);
             this.Controls.Add(this.btnConnect);
@@ -115,7 +115,7 @@
         private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.Button btnHitungMhs;
         private System.Windows.Forms.Button btnHitungMk;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
     }
