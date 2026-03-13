@@ -44,5 +44,24 @@ namespace PraktikumADO
         {
 
         }
+
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Koneksi();           // panggil method yang membuat objek connection
+                conn.Open();
+
+                MessageBox.Show("Koneksi ke database berhasil!", "Informasi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                conn.Close();        // baiknya ditutup setelah tes koneksi selesai
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Koneksi gagal!\n\n" + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
