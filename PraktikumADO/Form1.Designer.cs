@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnConnect = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnHitungMhs = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,14 +45,14 @@
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnHitungMhs
             // 
-            this.button2.Location = new System.Drawing.Point(437, 411);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(236, 87);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Hitung Mhs";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnHitungMhs.Location = new System.Drawing.Point(437, 411);
+            this.btnHitungMhs.Name = "btnHitungMhs";
+            this.btnHitungMhs.Size = new System.Drawing.Size(236, 87);
+            this.btnHitungMhs.TabIndex = 1;
+            this.btnHitungMhs.Text = "Hitung Mhs";
+            this.btnHitungMhs.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -100,7 +100,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnHitungMhs);
             this.Controls.Add(this.btnConnect);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -113,7 +113,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnConnect;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnHitungMhs;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label1;
