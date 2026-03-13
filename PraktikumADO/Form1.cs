@@ -131,5 +131,118 @@ namespace PraktikumADO
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnHitungDosen_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Koneksi();
+                conn.Open();
+
+                string query = "SELECT COUNT(*) FROM Dosen";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    int jumlah = Convert.ToInt32(cmd.ExecuteScalar());
+                    txtHasil.Text = jumlah.ToString();
+
+                    MessageBox.Show($"Jumlah dosen saat ini: {jumlah} orang",
+                                    "Hasil Hitung",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal menghitung jumlah dosen:\n" + ex.Message,
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnUpdateSKS_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Koneksi();
+                conn.Open();
+
+                string query = @"UPDATE MataKuliah 
+                         SET SKS = 4 
+                         WHERE KodeMK = 'IF210101'";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show($"Update berhasil!\n{rowsAffected} mata kuliah telah diubah SKS menjadi 4.",
+                                        "Sukses Update",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Tidak ada mata kuliah dengan KodeMK 'IF210101' yang ditemukan.",
+                                        "Informasi",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                    }
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal melakukan update SKS:\n" + ex.Message,
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnInsertProdi_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Koneksi();
+                conn.Open();
+
+                string query = "INSERT INTO ProgramStudi (KodeProdi, NamaProdi) VALUES ('MI01', 'Manajemen Informatika')";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show($"Insert berhasil!\n{rowsAffected} program studi baru telah ditambahkan.",
+                                        "Sukses Insert",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Insert gagal (mungkin duplikat primary key atau error lain).",
+                                        "Peringatan",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                    }
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal menambahkan program studi:\n" + ex.Message,
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+        }
     }
 }
