@@ -49,18 +49,16 @@ namespace PraktikumADO
         {
             try
             {
-                Koneksi();           // panggil method yang membuat objek connection
+                Koneksi();
                 conn.Open();
 
-                MessageBox.Show("Koneksi ke database berhasil!", "Informasi",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Koneksi ke database berhasil");
 
-                conn.Close();        // baiknya ditutup setelah tes koneksi selesai
+                conn.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Koneksi gagal!\n\n" + ex.Message, "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -68,64 +66,28 @@ namespace PraktikumADO
         {
             try
             {
-                Koneksi();           // panggil method koneksi yang sudah dibuat sebelumnya
+                Koneksi();
                 conn.Open();
 
                 string query = "SELECT COUNT(*) FROM Mahasiswa";
 
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    int jumlah = (int)cmd.ExecuteScalar();
-                    txtHasil.Text = jumlah.ToString();
-                }
+                cmd = new SqlCommand(query, conn);
+
+                int jumlah = (int)cmd.ExecuteScalar();
+
+                txtHasil.Text = jumlah.ToString();
 
                 conn.Close();
-
-                // Optional: beri feedback ke user
-                MessageBox.Show($"Jumlah mahasiswa: {txtHasil.Text} orang",
-                                "Informasi",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi kesalahan:\n" + ex.Message,
-                                "Error",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
             }
         }
 
-        private void btnHitungMK_Click(object sender, EventArgs e)
+        private void btnHitungMk_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Koneksi();           // panggil method koneksi yang sudah ada
-                conn.Open();
 
-                string query = "SELECT COUNT(*) FROM MataKuliah";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    int jumlah = Convert.ToInt32(cmd.ExecuteScalar());
-                    txtHasil.Text = jumlah.ToString();
-                }
-
-                conn.Close();
-
-                // Optional: tampilkan pesan sukses (bisa dihapus jika tidak perlu)
-                MessageBox.Show($"Jumlah mata kuliah: {txtHasil.Text} mata kuliah",
-                                "Informasi",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan:\n" + ex.Message,
-                                "Error",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-            }
         }
     }
 }
